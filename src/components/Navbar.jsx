@@ -81,18 +81,29 @@ const Navbar = () => {
       </div>
 
         {/*--------sidebar menu---------*/}
-        <div className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-cyan-300 transition-all ${visible ? 'w-full' : 'w-0'}`}>
+        <div className={`fixed top-0 right-0 w-60 h-full bg-cyan-500 p-5 transform ${
+          visible ? 'translate-x-0' : 'translate-x-full'
+        } transition-transform duration-300 ease-in-out z-50`}>
             <div className='flex flex-col text-black font-sans font-semibold'>
-              <div onClick={()=>setVisible(false)} className='flex  items-center ml-[348px] gap-4 p-3 mt-3 cursor-pointer'>
-                <img src={assets.cross_icon} alt="" className='h-6'/>
-                
-              </div>
+
+            <div className="flex justify-end items-center group relative">
+      <img onClick={() => setVisible(false)} src={assets.cross_icon} alt="open-menu" className="w-8 mx-[-9px] sm:hidden"
+      />
+     </div>
+
                 <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 hover:text-white' to='/'>HOME</NavLink>
                 <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 hover:text-white' to='/collections'>COLLECTIONS</NavLink>
                 <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 hover:text-white' to='/about'>ABOUT</NavLink>
                 <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 hover:text-white' to='/contact'>CONTACT</NavLink>
             </div>
         </div>
+        
+        {visible && (
+        <div
+          className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 backdrop-blur-sm z-40"
+          onClick={() => setVisible(false)} // Close sidebar when background is clicked
+        ></div>
+      )}
 
     </div>
   )
