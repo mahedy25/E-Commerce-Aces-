@@ -81,9 +81,9 @@ const Navbar = () => {
       </div>
 
         {/*--------sidebar menu---------*/}
-        <div className={`fixed top-0 right-0 w-60 h-full bg-cyan-500 p-5 transform ${
+        <div className={`fixed top-0 right-0 w-64 h-full bg-cyan-500 p-5 transform ${
           visible ? 'translate-x-0' : 'translate-x-full'
-        } transition-transform duration-300 ease-in-out z-50`}>
+        } transition-transform duration-5000 ease-in z-50`}>
             <div className='flex flex-col text-black font-sans font-semibold'>
 
             <div className="flex justify-end items-center group relative">
